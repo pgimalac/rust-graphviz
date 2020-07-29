@@ -3,4 +3,7 @@
 #![allow(non_snake_case)]
 #![allow(improper_ctypes)]
 
+// https://rust-lang.github.io/rust-bindgen/library-usage.html
+// https://www.graphviz.org/pdf/libguide.pdf
+
 include!("bindings.rs");

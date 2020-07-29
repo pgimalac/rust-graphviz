@@ -32,5 +32,34 @@ int main(int argc, char**argv){
 
 A similar Rust code would be
 ```Rust
+use graphviz_ffi::{
+    agclose, agread, fopen, gvContext, gvFreeContext, gvFreeLayout, gvLayout, gvRender, stdin,
+    stdout,
+};
 
+macro_rules! to_c_string {
+    ($str:expr) => {
+        std::ffi::CString::new($str).unwrap().as_ptr()
+    };
+}
+
+fn main() {
+    unsafe {
+        let fp = match std::env::args().nth(1) {
+            Some(path) => fopen(to_c_string!(path), to_c_string!("r")),
+            None => stdin,
+        };
+
+        let gvc = gvContext();
+        let g = agread(fp as _, 0 as _);
+
+        gvLayout(gvc, g, to_c_string!("dot"));
+        gvRender(gvc, g, to_c_string!("plain"), stdout);
+
+        gvFreeLayout(gvc, g);
+        agclose(g);
+
+        std::process::exit(gvFreeContext(gvc))
+    }
+}
 ```
