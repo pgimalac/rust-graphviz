@@ -6,4 +6,4 @@
 // https://rust-lang.github.io/rust-bindgen/library-usage.html
 // https://www.graphviz.org/pdf/libguide.pdf
 
-include!("bindings.rs");
+include!(concat!(env!("OUT_DIR"), "/bindings.rs"));
