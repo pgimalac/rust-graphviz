@@ -1,6 +1,6 @@
 [package]
 name = "graphviz-ffi"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Pierre Gimalac <pierre.gimalac@gmail.com>"]
 edition = "2018"
 build = "build.rs"
@@ -10,7 +10,7 @@ homepage = "https://github.com/pgimalac/rust-graphviz"
 repository = "https://github.com/pgimalac/rust-graphviz"
 license = "MIT"
 keywords = ["graphviz", "dot", "ffi", "C", "graph"]
-categories = ["External FFI bindings", "Visualization"]
+categories = ["external-ffi-bindings", "visualization"]
 
 [build-dependencies]
 bindgen = "0.54.1"
