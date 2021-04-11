@@ -13,4 +13,4 @@ keywords = ["graphviz", "dot", "ffi", "C", "graph"]
 categories = ["external-ffi-bindings", "visualization"]
 
 [build-dependencies]
-bindgen = "0.54.1"
+bindgen = "0.58.1"
